@@ -1,0 +1,27 @@
+<h2>Create developer</h2>
+<br>
+<form>
+    <div class="form-group">
+    <select id="project" class="form-control" [formControl]="project">
+        <option *ngFor="let task of data.projects" value="{{task.id}}">{{ task.name}}</option>
+      </select>
+    </div>
+
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" class="form-control" required [formControl]="first_name">
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" class="form-control" required [formControl]="last_name">
+  </div>
+
+
+  <div class="form-group">
+    <button (click)="createDeveloper()" class="btn btn-primary">Create</button>
+    <button class="btn btn-light" [routerLink]="['/developers']">Back</button>
+  </div>
+</form>
+
+

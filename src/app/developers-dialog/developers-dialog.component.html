@@ -1,0 +1,30 @@
+
+  <button class="btn btn-success" (click)="addDeveloper()"><i class="fas fa-plus"></i> Add Developer</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Developer</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="data.data && data.data.length > 0; else noData" >
+    <tr  *ngFor="let developer of data.data">
+      <td>{{ developer.id }}</td>
+      <td>{{ developer.first_name + " " + developer.last_name }}</td>
+
+      <td>
+        <button class="btn btn-danger" (click)="deleteDeveloper(developer.id,data.project_id)"><i class="fas fa-trash"></i></button>
+      </td>
+    </tr>
+    <tr *ngelse>
+    	<td>No Developers Found!</td>
+    </tr>
+
+    </tbody>
+  </table>
+<ng-template #noData>
+	<tbody>
+  <tr><td colspan="3" class="text-center">No Data Found! </td></tr>
+  </tbody>
+</ng-template>

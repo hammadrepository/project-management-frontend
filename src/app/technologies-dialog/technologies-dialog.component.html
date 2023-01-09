@@ -1,0 +1,33 @@
+<!-- <div *ngIf="task2 && data.length > 0; else noTasks"> -->
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Technology</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="data.data && data.data.length > 0; else noTasks" >
+    <tr  *ngFor="let technology of data.data">
+      <td>{{ technology.id }}</td>
+      <td>{{ technology.name }}</td>
+<!--       <td>{{ data.start_date | date: 'dd/MM/yyyy'}}</td>
+      <td>{{ data.end_date | date: 'dd/MM/yyyy'}}</td> -->
+      <td>
+<!--         <button class="btn btn-light" [routerLink]="['/tasks/', task.id]"><i class="far fa-eye"></i></button>
+        <button class="btn btn-light" (click)="delete(task.id)"><i class="far fa-trash-alt"></i></button>
+        <button class="btn btn-light" [routerLink]="['/tasks/', task.id, 'edit']"><i class="far fa-edit"></i></button> -->
+      </td>
+    </tr>
+    <tr *ngelse>
+    	<td>No Developers Found!</td>
+    </tr>
+
+    </tbody>
+  </table>
+<!-- </div> -->
+<ng-template #noTasks>
+	<tbody>
+  <tr><td colspan="3" class="text-center">No Data Found! </td></tr>
+  </tbody>
+</ng-template>

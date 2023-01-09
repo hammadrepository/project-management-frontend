@@ -1,0 +1,30 @@
+<h2 class="text-center">Developers</h2>
+<button class="btn btn-success" (click)="createDeveloper()"><i class="fas fa-plus"></i> Create Developer</button>
+<div *ngIf="developers && developers.length > 0; else noDevelopers">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let developer of developers">
+    <tr>
+      <td>{{ developer.id }}</td>
+      <td>{{ developer.first_name }}</td>
+      <td>{{ developer.last_name }}</td>
+      <td>
+<!--         <button class="btn btn-light" [routerLink]="['/tasks/', task.id]"><i class="far fa-eye"></i></button> --> 
+        <button class="btn btn-light"  (click)="editDeveloper(developer.id)"><i class="far fa-edit"></i></button>        
+        <button class="btn btn-danger" (click)="deleteDeveloper(developer.id)"><i class="fas fa-trash"></i></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noDevelopers>
+  <h2>No Records Found! </h2>
+</ng-template>

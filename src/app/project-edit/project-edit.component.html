@@ -1,0 +1,28 @@
+<h2>Edit Project</h2>
+
+<form [formGroup]="editForm">
+  <div class="form-group">
+    <label for="taskTitle">Name</label>
+    <input type="text" id="taskName" class="form-control" [(ngModel)]="project.name" formControlName="name">
+  </div>
+
+  <div class="form-group">
+    <label for="taskNote">Description</label>
+    <input type="text" id="taskDesc" class="form-control" [(ngModel)]="project.description" formControlName="description">
+  </div>
+
+  <div class="form-group">
+    <label for="taskNote">Start Date</label>
+    <input type="date" id="taskStartDate" disabled class="form-control" [(ngModel)]="project.start_date" formControlName="start_date">
+  </div>
+
+    <div class="form-group">
+    <label for="taskNote">End Date</label>
+    <input type="date" id="taskEndDate" class="form-control" [(ngModel)]="project.end_date" formControlName="end_date">
+  </div>
+
+  <div class="form-group">
+    <button (click)="updateProject()" class="btn btn-primary">Update</button>
+    <button class="btn btn-light" [routerLink]="['/tasks']">Back</button>
+  </div>
+</form>

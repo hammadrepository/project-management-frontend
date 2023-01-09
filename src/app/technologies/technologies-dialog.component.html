@@ -1,0 +1,22 @@
+<h2>Create Technology</h2>
+<br>
+<form>
+    <div class="form-group">
+      <label for="project">Select Project</label>
+    <select id="project" class="form-control" [formControl]="project">
+        <option *ngFor="let task of data.projects" value="{{task.id}}">{{ task.name}}</option>
+      </select>
+    </div>
+
+  <div class="form-group">
+    <label for="technologyName">Name</label>
+    <input type="text" id="technologyName" class="form-control" required [formControl]="name">
+  </div>
+
+  <div class="form-group">
+    <button (click)="createTechnology()" class="btn btn-primary">Create</button>
+    <button class="btn btn-light" [routerLink]="['/developers']">Back</button>
+  </div>
+</form>
+
+

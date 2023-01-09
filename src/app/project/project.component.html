@@ -1,0 +1,40 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<button class="btn btn-success" [routerLink]="['/projects/add']">New Project</button>
+
+<button class="btn btn-primary" [routerLink]="['/developers']">Developers</button>
+<button class="btn btn-success" [routerLink]="['/technologies']">Technologies</button>
+
+<div *ngIf="projects && projects.length > 0; else noProjects">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Project</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let project of projects">
+    <tr>
+      <td>{{ project.id }}</td>
+      <td>{{ project.name }}</td>
+      <td>{{ project.start_date | date: 'dd/MM/yyyy'}}</td>
+      <td>{{ project.end_date | date: 'dd/MM/yyyy'}}</td>
+      <td>
+<!--         <button class="btn btn-light" [routerLink]="['/projects/', project.id]"><i class="far fa-eye"></i></button> -->
+        <button class="btn btn-primary" (click)="projectDevelopers(project.id)">Developers</button>
+        <button class="btn btn-warning" (click)="projectTechnologies(project.id)">Technologies</button>        
+        <button class="btn btn-light" [routerLink]="['/projects/', project.id, 'edit']"><i class="far fa-edit"></i></button>
+        <button class="btn btn-danger" (click)="deleteProject(project.id)"><i class="fas fa-trash"></i></button>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noProjects>
+  <h2>No Projects Found!</h2>
+</ng-template>
